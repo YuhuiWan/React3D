@@ -69,6 +69,8 @@ npm run dev
 ```
 
 ### 发布
-访问dist/index.html即可
+```bash
+npm run release
+```
 
 

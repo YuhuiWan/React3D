@@ -4,7 +4,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: "./src/index.js",
-    mode: "development", //打包环境
     output: {
         publicPath:"./",
         filename: "bundle.js", //打包后的js文件名
@@ -24,7 +23,7 @@ module.exports = {
             title: 'Gallery-3D',
             filename: 'index.html',
             template: 'index.html',
-        })
+        }),
     ],
     module: {
         rules: [
