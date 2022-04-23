@@ -18,12 +18,16 @@ module.exports = {
         port: 8000,
         client: { overlay: false },
     },
+    watchOptions: {
+        poll: true,
+        ignored: /node_modules/
+    },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Gallery-3D',
             filename: 'index.html',
             template: 'index.html',
-        }),
+        })
     ],
     module: {
         rules: [
