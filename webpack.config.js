@@ -12,6 +12,8 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.gltf']
     },
+    mode: 'development',
+    devtool: 'source-map',
     devServer: {
         static: './dist',
         open: true,

@@ -35,7 +35,7 @@ const MyCanvas = () => {
       <Suspense fallback={null}>
           <Cone position={[0, 1, 0]} />
       </Suspense>
-  </Canvas>
+    </Canvas>
 };
 
 export { MyCanvas };
