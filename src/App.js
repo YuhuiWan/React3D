@@ -5,7 +5,7 @@ import Pictures from "./components/Pictures";
 
 const App = () => {
     return (<div>
-        {/* <MyCanvas /> */}
+        <MyCanvas />
         <Pictures />
     </div>);
 };

@@ -1,7 +1,7 @@
 import React, { useRef, useState, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import Cone from '../assets/models/Cone';
-import { Loader } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
 
 const Box = (props) => {
     // This reference will give us direct access to the mesh
@@ -35,6 +35,7 @@ const MyCanvas = () => {
       <Suspense fallback={null}>
           <Cone position={[0, 1, 0]} />
       </Suspense>
+      <OrbitControls />
     </Canvas>
 };
 

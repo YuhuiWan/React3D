@@ -35,7 +35,7 @@ function MyImages({ images }) {
   return (
     <Canvas 
       gl={{ alpha: false }} 
-      dpr={[1, 1.5]} 
+      dpr={[1, 2]} 
       camera={{ fov: 70, position: [0, 2, 15] }} 
     >
       <color attach="background" args={['#191920']} />
@@ -80,15 +80,17 @@ function Frames({ images, q = new THREE.Quaternion(), p = new THREE.Vector3() })
     }
   })
   useFrame((state, dt) => {
-    state.camera.position.lerp(p, 0.025)
-    state.camera.quaternion.slerp(q, 0.025)
+    // 相机位置进行线性插值移动
+    state.camera.position.lerp(p, 0.035)
+    // 相机角度进行球面插值旋转
+    state.camera.quaternion.slerp(q, 0.035)
   })
   return (
     <group
       ref={ref}
       onClick={(e) => (e.stopPropagation(), setLocation(clicked.current === e.object ? '/' : '/item/' + e.object.name))}
       onPointerMissed={() => setLocation('/')}>
-      {images.map((props) => <Frame key={props.url} {...props} /> /* prettier-ignore */)}
+      {images.map((props) => <Frame key={props.url} {...props} />)}
     </group>
   )
 }
@@ -122,7 +124,7 @@ function Frame({ url, c = new THREE.Color(), ...props }) {
         </mesh>
         <Image raycast={() => null} ref={image} position={[0, 0, 0.7]} url={url} />
       </mesh>
-      <Text maxWidth={0.1} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.025}>
+      <Text maxWidth={0.1} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.125}>
         {name.split('-').join(' ')}
       </Text>
     </group>
