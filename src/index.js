@@ -9,4 +9,3 @@ const root = ReactDOM.createRoot(container);
 
 // Initial render: Render an element to the root.
 root.render(<App />);
-

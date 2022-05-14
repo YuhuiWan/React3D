@@ -3867,16 +3867,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Image */ "./src/components/Image.js");
-/* harmony import */ var _components_MyCanvas__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/MyCanvas */ "./src/components/MyCanvas.js");
-/* harmony import */ var _components_Pictures__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Pictures */ "./src/components/Pictures.js");
+/* harmony import */ var wouter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! wouter */ "./node_modules/wouter/index.js");
+/* harmony import */ var _components_Menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Menu */ "./src/components/Menu.js");
+/* harmony import */ var _components_Image__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Image */ "./src/components/Image.js");
+/* harmony import */ var _components_MyCanvas__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/MyCanvas */ "./src/components/MyCanvas.js");
+/* harmony import */ var _components_Pictures__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Pictures */ "./src/components/Pictures.js");
+/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Header */ "./src/components/Header.js");
+
+
+
 
 
 
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_MyCanvas__WEBPACK_IMPORTED_MODULE_2__.MyCanvas, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Pictures__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Router, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Redirect, {
+    from: "/",
+    to: "/index"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Route, {
+    path: "/index",
+    component: _components_Menu__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Route, {
+    path: "/image",
+    component: _components_Image__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Route, {
+    path: "/myCanvas",
+    component: _components_MyCanvas__WEBPACK_IMPORTED_MODULE_4__.MyCanvas
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Route, {
+    path: "/pictures",
+    component: _components_Pictures__WEBPACK_IMPORTED_MODULE_5__["default"]
+  })));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
@@ -3938,6 +3959,33 @@ _react_three_drei__WEBPACK_IMPORTED_MODULE_2__.useGLTF.preload((_cone_gltf__WEBP
 
 /***/ }),
 
+/***/ "./src/components/Header.js":
+/*!**********************************!*\
+  !*** ./src/components/Header.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var wouter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! wouter */ "./node_modules/wouter/index.js");
+
+
+
+var Header = function Header() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/index"
+  }, "home"));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
+
+/***/ }),
+
 /***/ "./src/components/Image.js":
 /*!*********************************!*\
   !*** ./src/components/Image.js ***!
@@ -3960,6 +4008,39 @@ var Image = function Image() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Image);
+
+/***/ }),
+
+/***/ "./src/components/Menu.js":
+/*!********************************!*\
+  !*** ./src/components/Menu.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var wouter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! wouter */ "./node_modules/wouter/index.js");
+
+
+
+var Menu = function Menu() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "Samples"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+    role: "nav"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/image"
+  }, "image")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/myCanvas"
+  }, "myCanvas")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/pictures"
+  }, "pictures"))));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Menu);
 
 /***/ }),
 
