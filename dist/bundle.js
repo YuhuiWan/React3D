@@ -3873,6 +3873,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_MyCanvas__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/MyCanvas */ "./src/components/MyCanvas.js");
 /* harmony import */ var _components_Pictures__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Pictures */ "./src/components/Pictures.js");
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Header */ "./src/components/Header.js");
+/* harmony import */ var _components_Gallery__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Gallery */ "./src/components/Gallery.js");
+
 
 
 
@@ -3897,6 +3899,9 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/pictures",
     component: _components_Pictures__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Route, {
+    path: "/gallery",
+    component: _components_Gallery__WEBPACK_IMPORTED_MODULE_7__["default"]
   })));
 };
 
@@ -3956,6 +3961,48 @@ function Cone(_ref) {
   })));
 }
 _react_three_drei__WEBPACK_IMPORTED_MODULE_2__.useGLTF.preload((_cone_gltf__WEBPACK_IMPORTED_MODULE_1___default()));
+
+/***/ }),
+
+/***/ "./src/components/Gallery.js":
+/*!***********************************!*\
+  !*** ./src/components/Gallery.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Gallery = function Gallery() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    style: {
+      width: "100vw",
+      height: "100vh"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("iframe", {
+    width: "100%",
+    height: "100%",
+    title: "Gallery Showroom",
+    frameborder: "true",
+    allowfullscreen: "true",
+    mozallowfullscreen: 1,
+    webkitallowfullscreen: 1,
+    allow: "autoplay; fullscreen; xr-spatial-tracking",
+    "xr-spatial-tracking": 1,
+    "execution-while-out-of-viewport": 1,
+    "execution-while-not-rendered": 1,
+    "web-share": 1,
+    src: "https://sketchfab.com/models/22b427f9480d4e31b9bfe26f19b746e1/embed"
+  }));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Gallery);
 
 /***/ }),
 
@@ -4037,7 +4084,9 @@ var Menu = function Menu() {
     to: "/myCanvas"
   }, "myCanvas")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/pictures"
-  }, "pictures"))));
+  }, "pictures")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/gallery"
+  }, "gallery"))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Menu);

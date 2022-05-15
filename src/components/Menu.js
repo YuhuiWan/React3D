@@ -9,6 +9,7 @@ const Menu = () => {
                 <li><Link to="/image">image</Link></li>
                 <li><Link to="/myCanvas">myCanvas</Link></li>
                 <li><Link to="/pictures">pictures</Link></li>
+                <li><Link to="/gallery">gallery</Link></li>
             </ul>
         </div>
     );
