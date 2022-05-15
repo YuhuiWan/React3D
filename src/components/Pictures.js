@@ -5,6 +5,7 @@ import { useCursor, MeshReflectorMaterial, Image, Text, Environment, OrbitContro
 import { useRoute, useLocation } from 'wouter'
 import getUuid from 'uuid-by-string'
 const GOLDENRATIO = 1.61803398875
+const localPath = '/pictures';
 
 export default function Pictures() {
 
@@ -33,41 +34,43 @@ export default function Pictures() {
 
 function MyImages({ images }) {
   return (
-    <Canvas 
-      gl={{ alpha: false }} 
-      dpr={[1, 2]} 
-      camera={{ fov: 70, position: [0, 2, 15] }} 
-    >
-      {/* <OrbitControls /> */}
-      <color attach="background" args={['#191920']} />
-      <fog attach="fog" args={['#191920', 0, 15]} />
-      <Environment preset="city" />
-      <group position={[0, -0.5, 0]}>
-        <Frames images={images} />
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-          <planeGeometry args={[50, 50]} />
-          <MeshReflectorMaterial
-            blur={[300, 100]}
-            resolution={2048}
-            mixBlur={1}
-            mixStrength={40}
-            roughness={1}
-            depthScale={1.2}
-            minDepthThreshold={0.4}
-            maxDepthThreshold={1.4}
-            color="#101010"
-            metalness={0.5}
-          />
-        </mesh>
-      </group>
-    </Canvas>
+    <div style={{ width: "100vw", height: "100vh" }}>
+      <Canvas 
+        gl={{ alpha: false }} 
+        dpr={[1, 2]} 
+        camera={{ fov: 70, position: [0, 2, 15] }} 
+      >
+        {/* <OrbitControls /> */}
+        <color attach="background" args={['#191920']} />
+        <fog attach="fog" args={['#191920', 0, 15]} />
+        <Environment preset="city" />
+        <group position={[0, -0.5, 0]}>
+          <Frames images={images} />
+          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+            <planeGeometry args={[50, 50]} />
+            <MeshReflectorMaterial
+              blur={[300, 100]}
+              resolution={2048}
+              mixBlur={1}
+              mixStrength={40}
+              roughness={1}
+              depthScale={1.2}
+              minDepthThreshold={0.4}
+              maxDepthThreshold={1.4}
+              color="#101010"
+              metalness={0.5}
+            />
+          </mesh>
+        </group>
+      </Canvas>
+    </div>
   )
 }
 
 function Frames({ images, q = new THREE.Quaternion(), p = new THREE.Vector3() }) {
   const ref = useRef()
   const clicked = useRef()
-  const [, params] = useRoute('/item/:id')
+  const [, params] = useRoute(localPath + '/item/:id')
   const [, setLocation] = useLocation()
   useEffect(() => {
     clicked.current = ref.current.getObjectByName(params?.id)
@@ -89,8 +92,8 @@ function Frames({ images, q = new THREE.Quaternion(), p = new THREE.Vector3() })
   return (
     <group
       ref={ref}
-      onClick={(e) => (e.stopPropagation(), setLocation(clicked.current === e.object ? '/' : '/item/' + e.object.name))}
-      onPointerMissed={() => setLocation('/')}>
+      onClick={(e) => (e.stopPropagation(), setLocation(clicked.current === e.object ? localPath : localPath + '/item/' + e.object.name))}
+      onPointerMissed={() => setLocation(localPath)}>
       {images.map((props) => <Frame key={props.url} {...props} />)}
     </group>
   )
@@ -125,7 +128,7 @@ function Frame({ url, c = new THREE.Color(), ...props }) {
         </mesh>
         <Image raycast={() => null} ref={image} position={[0, 0, 0.7]} url={url} />
       </mesh>
-      <Text maxWidth={0.1} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.125}>
+      <Text maxWidth={0.1} anchorX="left" anchorY="top" position={[0.55, GOLDENRATIO, 0]} fontSize={0.1}>
         {name.split('-').join(' ')}
       </Text>
     </group>

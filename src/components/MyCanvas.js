@@ -27,16 +27,20 @@ const Box = (props) => {
 };
 
 const MyCanvas = () => {
-    return <Canvas>
-      <ambientLight />
-      <pointLight position={[-10, 10, 10]} />
-      <Box position={[-3, 0, 0]} />
-      <Box position={[3, 0, 0]} />
-      <Suspense fallback={null}>
-          <Cone position={[0, 1, 0]} />
-      </Suspense>
-      <OrbitControls />
-    </Canvas>
+    return (
+      <div style={{ width: "100vw", height: "100vh" }}>
+        <Canvas size={{ width: 200, height: 400 }}>
+          <ambientLight />
+          <pointLight position={[-10, 10, 10]} />
+          <Box position={[-3, 0, 0]} />
+          <Box position={[3, 0, 0]} />
+          <Suspense fallback={null}>
+              <Cone position={[0, 1, 0]} />
+          </Suspense>
+          <OrbitControls />
+        </Canvas>
+      </div>
+    );
 };
 
 export { MyCanvas };

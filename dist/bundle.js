@@ -4119,7 +4119,17 @@ var Box = function Box(props) {
 };
 
 var MyCanvas = function MyCanvas() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_fiber__WEBPACK_IMPORTED_MODULE_3__.Canvas, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ambientLight", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("pointLight", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      width: "100vw",
+      height: "100vh"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_fiber__WEBPACK_IMPORTED_MODULE_3__.Canvas, {
+    size: {
+      width: 200,
+      height: 400
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ambientLight", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("pointLight", {
     position: [-10, 10, 10]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Box, {
     position: [-3, 0, 0]
@@ -4129,7 +4139,7 @@ var MyCanvas = function MyCanvas() {
     fallback: null
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_assets_models_Cone__WEBPACK_IMPORTED_MODULE_1__["default"], {
     position: [0, 1, 0]
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_drei__WEBPACK_IMPORTED_MODULE_4__.OrbitControls, null));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_drei__WEBPACK_IMPORTED_MODULE_4__.OrbitControls, null)));
 };
 
 
@@ -4187,6 +4197,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var GOLDENRATIO = 1.61803398875;
+var localPath = '/pictures';
 function Pictures() {
   var pexel = function pexel(id) {
     return "https://images.pexels.com/photos/".concat(id, "/pexels-photo-").concat(id, ".jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
@@ -4242,7 +4253,12 @@ function Pictures() {
 
 function MyImages(_ref) {
   var images = _ref.images;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_fiber__WEBPACK_IMPORTED_MODULE_3__.Canvas, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      width: "100vw",
+      height: "100vh"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_fiber__WEBPACK_IMPORTED_MODULE_3__.Canvas, {
     gl: {
       alpha: false
     },
@@ -4279,7 +4295,7 @@ function MyImages(_ref) {
     maxDepthThreshold: 1.4,
     color: "#101010",
     metalness: 0.5
-  }))));
+  })))));
 }
 
 function Frames(_ref2) {
@@ -4291,7 +4307,7 @@ function Frames(_ref2) {
   var ref = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   var clicked = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
 
-  var _useRoute = (0,wouter__WEBPACK_IMPORTED_MODULE_1__.useRoute)('/item/:id'),
+  var _useRoute = (0,wouter__WEBPACK_IMPORTED_MODULE_1__.useRoute)(localPath + '/item/:id'),
       _useRoute2 = _slicedToArray(_useRoute, 2),
       params = _useRoute2[1];
 
@@ -4320,10 +4336,10 @@ function Frames(_ref2) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("group", {
     ref: ref,
     onClick: function onClick(e) {
-      return e.stopPropagation(), setLocation(clicked.current === e.object ? '/' : '/item/' + e.object.name);
+      return e.stopPropagation(), setLocation(clicked.current === e.object ? localPath : localPath + '/item/' + e.object.name);
     },
     onPointerMissed: function onPointerMissed() {
-      return setLocation('/');
+      return setLocation(localPath);
     }
   }, images.map(function (props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Frame, _extends({
@@ -4396,7 +4412,7 @@ function Frame(_ref3) {
     anchorX: "left",
     anchorY: "top",
     position: [0.55, GOLDENRATIO, 0],
-    fontSize: 0.125
+    fontSize: 0.1
   }, name.split('-').join(' ')));
 }
 
