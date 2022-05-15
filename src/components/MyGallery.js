@@ -8,12 +8,12 @@ const MyGallery = () => {
         <div style={{ width: "100vw", height: "90vh" }}>
           <Canvas>
             <ambientLight intensity={0.3} color={'#fff'} />
-            <Suspense fallback={null}>
+            <Suspense fallback={<h2>{'加载中'}</h2>}>
                 <Scene position={[0, -120, 0]} />
             </Suspense>
-            <Environment preset={'sunset'} />
-            <FirstPersonControls autoForward={true} lookSpeed={0.05} movementSpeed={10} />
-            {/* <OrbitControls autoRotate={true} enableZoom={true} enablePan={true} /> */}
+            <Environment preset={'sunset'} background={true} />
+            {/* <FirstPersonControls autoForward={true} lookSpeed={0.05} movementSpeed={10} /> */}
+            <OrbitControls autoRotate={false} enableZoom={true} enablePan={true} />
           </Canvas>
         </div>
       );

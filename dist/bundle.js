@@ -230,50 +230,6 @@ function Environment(props) {
 
 /***/ }),
 
-/***/ "./node_modules/@react-three/drei/core/FirstPersonControls.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@react-three/drei/core/FirstPersonControls.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "FirstPersonControls": () => (/* binding */ FirstPersonControls)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _react_three_fiber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @react-three/fiber */ "./node_modules/@react-three/fiber/dist/index-3c7aae97.esm.js");
-/* harmony import */ var three_stdlib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! three-stdlib */ "./node_modules/three-stdlib/controls/FirstPersonControls.js");
-
-
-
-
-
-const FirstPersonControls = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(({
-  domElement,
-  ...props
-}, ref) => {
-  const camera = (0,_react_three_fiber__WEBPACK_IMPORTED_MODULE_2__.w)(state => state.camera);
-  const gl = (0,_react_three_fiber__WEBPACK_IMPORTED_MODULE_2__.w)(state => state.gl);
-  const events = (0,_react_three_fiber__WEBPACK_IMPORTED_MODULE_2__.w)(state => state.events);
-  const explDomElement = domElement || events.connected || gl.domElement;
-  const [controls] = react__WEBPACK_IMPORTED_MODULE_1__.useState(() => new three_stdlib__WEBPACK_IMPORTED_MODULE_3__.FirstPersonControls(camera, explDomElement));
-  (0,_react_three_fiber__WEBPACK_IMPORTED_MODULE_2__.x)((_, delta) => {
-    controls.update(delta);
-  }, -1);
-  return controls ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("primitive", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    ref: ref,
-    object: controls
-  }, props)) : null;
-});
-
-
-
-
-/***/ }),
-
 /***/ "./node_modules/@react-three/drei/core/Image.js":
 /*!******************************************************!*\
   !*** ./node_modules/@react-three/drei/core/Image.js ***!
@@ -4050,12 +4006,20 @@ function Model(_ref) {
       nodes = _useGLTF.nodes,
       materials = _useGLTF.materials;
 
+  var _onDoubleClick = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (e) {
+    e.stopPropagation();
+    console.log(e);
+  }, []);
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("group", _extends({
     ref: group
   }, props, {
     dispose: null
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("group", {
-    rotation: [-Math.PI / 2, 0, 0]
+    rotation: [-Math.PI / 2, 0, 0],
+    onDoubleClick: function onDoubleClick(e) {
+      return _onDoubleClick(e);
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("group", {
     position: [-111.77, -57.54, 145.19],
     rotation: [1.35, -1.18, -0.21]
@@ -4384,7 +4348,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_three_fiber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @react-three/fiber */ "./node_modules/@react-three/fiber/dist/react-three-fiber.esm.js");
 /* harmony import */ var _assets_models_gallery_showroom_Scene__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/models/gallery_showroom/Scene */ "./src/assets/models/gallery_showroom/Scene.js");
 /* harmony import */ var _react_three_drei__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @react-three/drei */ "./node_modules/@react-three/drei/core/Environment.js");
-/* harmony import */ var _react_three_drei__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @react-three/drei */ "./node_modules/@react-three/drei/core/FirstPersonControls.js");
+/* harmony import */ var _react_three_drei__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @react-three/drei */ "./node_modules/@react-three/drei/core/OrbitControls.js");
 
 
 
@@ -4400,15 +4364,16 @@ var MyGallery = function MyGallery() {
     intensity: 0.3,
     color: '#fff'
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
-    fallback: null
+    fallback: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, '加载中')
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_assets_models_gallery_showroom_Scene__WEBPACK_IMPORTED_MODULE_1__["default"], {
     position: [0, -120, 0]
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_drei__WEBPACK_IMPORTED_MODULE_3__.Environment, {
-    preset: 'sunset'
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_drei__WEBPACK_IMPORTED_MODULE_4__.FirstPersonControls, {
-    autoForward: true,
-    lookSpeed: 0.05,
-    movementSpeed: 10
+    preset: 'sunset',
+    background: true
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_drei__WEBPACK_IMPORTED_MODULE_4__.OrbitControls, {
+    autoRotate: false,
+    enableZoom: true,
+    enablePan: true
   })));
 };
 
@@ -60738,313 +60703,6 @@ const clear = keys => {
     }
   }
 };
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/three-stdlib/controls/FirstPersonControls.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/three-stdlib/controls/FirstPersonControls.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "FirstPersonControls": () => (/* binding */ FirstPersonControls)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three */ "./node_modules/three/build/three.module.js");
-
-
-
-const targetPosition = new three__WEBPACK_IMPORTED_MODULE_1__.Vector3();
-class FirstPersonControls extends three__WEBPACK_IMPORTED_MODULE_1__.EventDispatcher {
-  // internals
-  constructor(object, _domElement) {
-    super();
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "object", void 0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "domElement", void 0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "enabled", true);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "movementSpeed", 1.0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "lookSpeed", 0.005);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "lookVertical", true);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "autoForward", false);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "activeLook", true);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "heightSpeed", false);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "heightCoef", 1.0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "heightMin", 0.0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "heightMax", 1.0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "constrainVertical", false);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "verticalMin", 0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "verticalMax", Math.PI);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "mouseDragOn", false);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "autoSpeedFactor", 0.0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "mouseX", 0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "mouseY", 0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "moveForward", false);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "moveBackward", false);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "moveLeft", false);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "moveRight", false);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "moveUp", false);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "moveDown", false);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "viewHalfX", 0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "viewHalfY", 0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "lat", 0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "lon", 0);
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "lookDirection", new three__WEBPACK_IMPORTED_MODULE_1__.Vector3());
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "spherical", new three__WEBPACK_IMPORTED_MODULE_1__.Spherical());
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "target", new three__WEBPACK_IMPORTED_MODULE_1__.Vector3());
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "connect", domElement => {
-      domElement.setAttribute('tabindex', '-1');
-      domElement.style.touchAction = 'none';
-      domElement.addEventListener('contextmenu', this.contextmenu);
-      domElement.addEventListener('mousemove', this.onMouseMove);
-      domElement.addEventListener('mousedown', this.onMouseDown);
-      domElement.addEventListener('mouseup', this.onMouseUp);
-      this.domElement = domElement;
-      window.addEventListener('keydown', this.onKeyDown);
-      window.addEventListener('keyup', this.onKeyUp);
-      this.handleResize();
-    });
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "dispose", () => {
-      var _this$domElement, _this$domElement2, _this$domElement3, _this$domElement4;
-
-      (_this$domElement = this.domElement) === null || _this$domElement === void 0 ? void 0 : _this$domElement.removeEventListener('contextmenu', this.contextmenu);
-      (_this$domElement2 = this.domElement) === null || _this$domElement2 === void 0 ? void 0 : _this$domElement2.removeEventListener('mousedown', this.onMouseDown);
-      (_this$domElement3 = this.domElement) === null || _this$domElement3 === void 0 ? void 0 : _this$domElement3.removeEventListener('mousemove', this.onMouseMove);
-      (_this$domElement4 = this.domElement) === null || _this$domElement4 === void 0 ? void 0 : _this$domElement4.removeEventListener('mouseup', this.onMouseUp);
-      window.removeEventListener('keydown', this.onKeyDown);
-      window.removeEventListener('keyup', this.onKeyUp);
-    });
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleResize", () => {
-      if (this.domElement) {
-        this.viewHalfX = this.domElement.offsetWidth / 2;
-        this.viewHalfY = this.domElement.offsetHeight / 2;
-      }
-    });
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "onMouseDown", event => {
-      var _this$domElement5;
-
-      (_this$domElement5 = this.domElement) === null || _this$domElement5 === void 0 ? void 0 : _this$domElement5.focus();
-
-      if (this.activeLook) {
-        switch (event.button) {
-          case 0:
-            this.moveForward = true;
-            break;
-
-          case 2:
-            this.moveBackward = true;
-            break;
-        }
-      }
-
-      this.mouseDragOn = true;
-    });
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "onMouseUp", event => {
-      if (this.activeLook) {
-        switch (event.button) {
-          case 0:
-            this.moveForward = false;
-            break;
-
-          case 2:
-            this.moveBackward = false;
-            break;
-        }
-      }
-
-      this.mouseDragOn = false;
-    });
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "onMouseMove", event => {
-      if (this.domElement) {
-        this.mouseX = event.pageX - this.domElement.offsetLeft - this.viewHalfX;
-        this.mouseY = event.pageY - this.domElement.offsetTop - this.viewHalfY;
-      }
-    });
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "onKeyDown", event => {
-      switch (event.code) {
-        case 'ArrowUp':
-        case 'KeyW':
-          this.moveForward = true;
-          break;
-
-        case 'ArrowLeft':
-        case 'KeyA':
-          this.moveLeft = true;
-          break;
-
-        case 'ArrowDown':
-        case 'KeyS':
-          this.moveBackward = true;
-          break;
-
-        case 'ArrowRight':
-        case 'KeyD':
-          this.moveRight = true;
-          break;
-
-        case 'KeyR':
-          this.moveUp = true;
-          break;
-
-        case 'KeyF':
-          this.moveDown = true;
-          break;
-      }
-    });
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "onKeyUp", event => {
-      switch (event.code) {
-        case 'ArrowUp':
-        case 'KeyW':
-          this.moveForward = false;
-          break;
-
-        case 'ArrowLeft':
-        case 'KeyA':
-          this.moveLeft = false;
-          break;
-
-        case 'ArrowDown':
-        case 'KeyS':
-          this.moveBackward = false;
-          break;
-
-        case 'ArrowRight':
-        case 'KeyD':
-          this.moveRight = false;
-          break;
-
-        case 'KeyR':
-          this.moveUp = false;
-          break;
-
-        case 'KeyF':
-          this.moveDown = false;
-          break;
-      }
-    });
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "lookAt", (x, y, z) => {
-      if (x instanceof three__WEBPACK_IMPORTED_MODULE_1__.Vector3) {
-        this.target.copy(x);
-      } else if (y && z) {
-        this.target.set(x, y, z);
-      }
-
-      this.object.lookAt(this.target);
-      this.setOrientation();
-      return this;
-    });
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "update", delta => {
-      if (!this.enabled) return;
-
-      if (this.heightSpeed) {
-        const y = three__WEBPACK_IMPORTED_MODULE_1__.MathUtils.clamp(this.object.position.y, this.heightMin, this.heightMax);
-        const heightDelta = y - this.heightMin;
-        this.autoSpeedFactor = delta * (heightDelta * this.heightCoef);
-      } else {
-        this.autoSpeedFactor = 0.0;
-      }
-
-      const actualMoveSpeed = delta * this.movementSpeed;
-
-      if (this.moveForward || this.autoForward && !this.moveBackward) {
-        this.object.translateZ(-(actualMoveSpeed + this.autoSpeedFactor));
-      }
-
-      if (this.moveBackward) this.object.translateZ(actualMoveSpeed);
-      if (this.moveLeft) this.object.translateX(-actualMoveSpeed);
-      if (this.moveRight) this.object.translateX(actualMoveSpeed);
-      if (this.moveUp) this.object.translateY(actualMoveSpeed);
-      if (this.moveDown) this.object.translateY(-actualMoveSpeed);
-      let actualLookSpeed = delta * this.lookSpeed;
-
-      if (!this.activeLook) {
-        actualLookSpeed = 0;
-      }
-
-      let verticalLookRatio = 1;
-
-      if (this.constrainVertical) {
-        verticalLookRatio = Math.PI / (this.verticalMax - this.verticalMin);
-      }
-
-      this.lon -= this.mouseX * actualLookSpeed;
-      if (this.lookVertical) this.lat -= this.mouseY * actualLookSpeed * verticalLookRatio;
-      this.lat = Math.max(-85, Math.min(85, this.lat));
-      let phi = three__WEBPACK_IMPORTED_MODULE_1__.MathUtils.degToRad(90 - this.lat);
-      const theta = three__WEBPACK_IMPORTED_MODULE_1__.MathUtils.degToRad(this.lon);
-
-      if (this.constrainVertical) {
-        phi = three__WEBPACK_IMPORTED_MODULE_1__.MathUtils.mapLinear(phi, 0, Math.PI, this.verticalMin, this.verticalMax);
-      }
-
-      const position = this.object.position;
-      targetPosition.setFromSphericalCoords(1, phi, theta).add(position);
-      this.object.lookAt(targetPosition);
-    });
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "contextmenu", event => event.preventDefault());
-
-    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "setOrientation", () => {
-      this.lookDirection.set(0, 0, -1).applyQuaternion(this.object.quaternion);
-      this.spherical.setFromVector3(this.lookDirection);
-      this.lat = 90 - three__WEBPACK_IMPORTED_MODULE_1__.MathUtils.radToDeg(this.spherical.phi);
-      this.lon = three__WEBPACK_IMPORTED_MODULE_1__.MathUtils.radToDeg(this.spherical.theta);
-    });
-
-    this.object = object;
-    this.domElement = _domElement;
-    this.setOrientation();
-    if (_domElement) this.connect(_domElement);
-  }
-
-}
 
 
 

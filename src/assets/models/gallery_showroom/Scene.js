@@ -6,16 +6,20 @@ source: https://sketchfab.com/3d-models/gallery-showroom-22b427f9480d4e31b9bfe26
 title: Gallery Showroom
 */
 
-import React, { useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import model from './scene.gltf'
 
 export default function Model({ ...props }) {
   const group = useRef()
   const { nodes, materials } = useGLTF(model)
+  const onDoubleClick = useCallback((e) => {
+    e.stopPropagation();
+    console.log(e);
+  }, []);
   return (
     <group ref={group} {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]}>
+      <group rotation={[-Math.PI / 2, 0, 0]} onDoubleClick={e => onDoubleClick(e)}>
         <group position={[-111.77, -57.54, 145.19]} rotation={[1.35, -1.18, -0.21]} />
         <mesh geometry={nodes.Material2.geometry} material={materials.Wood02} />
         <mesh geometry={nodes.Material2_1.geometry} material={materials.material} />
