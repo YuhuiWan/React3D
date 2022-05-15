@@ -3874,6 +3874,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Pictures__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Pictures */ "./src/components/Pictures.js");
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Header */ "./src/components/Header.js");
 /* harmony import */ var _components_Gallery__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Gallery */ "./src/components/Gallery.js");
+/* harmony import */ var _components_MyGallery__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/MyGallery */ "./src/components/MyGallery.js");
 
 
 
@@ -3882,6 +3883,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // 所有需要路由的组件需要在下面注册，然后在menu组件里加一个入口
 
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Router, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Redirect, {
@@ -3902,6 +3904,9 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/gallery",
     component: _components_Gallery__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Route, {
+    path: "/myGallery",
+    component: _components_MyGallery__WEBPACK_IMPORTED_MODULE_8__["default"]
   })));
 };
 
@@ -3909,10 +3914,10 @@ var App = function App() {
 
 /***/ }),
 
-/***/ "./src/assets/models/Cone.js":
-/*!***********************************!*\
-  !*** ./src/assets/models/Cone.js ***!
-  \***********************************/
+/***/ "./src/assets/models/cone/Cone.js":
+/*!****************************************!*\
+  !*** ./src/assets/models/cone/Cone.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3923,9 +3928,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _react_three_drei__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @react-three/drei */ "./node_modules/@react-three/drei/core/useGLTF.js");
-/* harmony import */ var _cone_gltf__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cone.gltf */ "./src/assets/models/cone.gltf");
-/* harmony import */ var _cone_gltf__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cone_gltf__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _react_three_fiber__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @react-three/fiber */ "./node_modules/@react-three/fiber/dist/index-3c7aae97.esm.js");
+/* harmony import */ var _cone_gltf__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cone.gltf */ "./src/assets/models/cone/cone.gltf");
+/* harmony import */ var _cone_gltf__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cone_gltf__WEBPACK_IMPORTED_MODULE_1__);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 /*
@@ -3961,6 +3966,127 @@ function Cone(_ref) {
   })));
 }
 _react_three_drei__WEBPACK_IMPORTED_MODULE_2__.useGLTF.preload((_cone_gltf__WEBPACK_IMPORTED_MODULE_1___default()));
+
+/***/ }),
+
+/***/ "./src/assets/models/gallery_showroom/Scene.js":
+/*!*****************************************************!*\
+  !*** ./src/assets/models/gallery_showroom/Scene.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Model)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _react_three_drei__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @react-three/drei */ "./node_modules/@react-three/drei/core/useGLTF.js");
+/* harmony import */ var _scene_gltf__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scene.gltf */ "./src/assets/models/gallery_showroom/scene.gltf");
+/* harmony import */ var _scene_gltf__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scene_gltf__WEBPACK_IMPORTED_MODULE_1__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+/*
+Auto-generated by: https://github.com/pmndrs/gltfjsx
+author: jimbogies (https://sketchfab.com/jimbogies)
+license: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+source: https://sketchfab.com/3d-models/gallery-showroom-22b427f9480d4e31b9bfe26f19b746e1
+title: Gallery Showroom
+*/
+
+
+
+function Model(_ref) {
+  var props = _extends({}, _ref);
+
+  var group = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+
+  var _useGLTF = (0,_react_three_drei__WEBPACK_IMPORTED_MODULE_2__.useGLTF)((_scene_gltf__WEBPACK_IMPORTED_MODULE_1___default())),
+      nodes = _useGLTF.nodes,
+      materials = _useGLTF.materials;
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("group", _extends({
+    ref: group
+  }, props, {
+    dispose: null
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("group", {
+    rotation: [-Math.PI / 2, 0, 0]
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("group", {
+    position: [-111.77, -57.54, 145.19],
+    rotation: [1.35, -1.18, -0.21]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material2.geometry,
+    material: materials.Wood02
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material2_1.geometry,
+    material: materials.material
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3.geometry,
+    material: materials.Wood01
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material2_2.geometry,
+    material: materials.Diffuse
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_1.geometry,
+    material: materials.material_0
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material2_3.geometry,
+    material: materials.Plaster
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_2.geometry,
+    material: materials.Clear
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_3.geometry,
+    material: materials.Ceiling
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("lineSegments", {
+    geometry: nodes.Material2_4.geometry,
+    material: materials.edge_color13900255
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_4.geometry,
+    material: materials.Light
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material2_5.geometry,
+    material: materials.window
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_5.geometry,
+    material: materials.image01
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_6.geometry,
+    material: materials.image04
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_7.geometry,
+    material: materials.image06
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_8.geometry,
+    material: materials.image09
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_9.geometry,
+    material: materials.image10
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_10.geometry,
+    material: materials.image03
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_11.geometry,
+    material: materials.image08
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_12.geometry,
+    material: materials.image07
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_13.geometry,
+    material: materials.image05
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_14.geometry,
+    material: materials.image02
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material2_6.geometry,
+    material: materials.Metal04
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("mesh", {
+    geometry: nodes.Material3_15.geometry,
+    material: materials.Flourescent
+  })));
+}
+_react_three_drei__WEBPACK_IMPORTED_MODULE_2__.useGLTF.preload((_scene_gltf__WEBPACK_IMPORTED_MODULE_1___default()));
 
 /***/ }),
 
@@ -4086,7 +4212,9 @@ var Menu = function Menu() {
     to: "/pictures"
   }, "pictures")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/gallery"
-  }, "gallery"))));
+  }, "gallery")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(wouter__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/myGallery"
+  }, "myGallery"))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Menu);
@@ -4102,13 +4230,14 @@ var Menu = function Menu() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Box": () => (/* binding */ Box),
 /* harmony export */   "MyCanvas": () => (/* binding */ MyCanvas)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _react_three_fiber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @react-three/fiber */ "./node_modules/@react-three/fiber/dist/index-3c7aae97.esm.js");
 /* harmony import */ var _react_three_fiber__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @react-three/fiber */ "./node_modules/@react-three/fiber/dist/react-three-fiber.esm.js");
-/* harmony import */ var _assets_models_Cone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/models/Cone */ "./src/assets/models/Cone.js");
+/* harmony import */ var _assets_models_cone_Cone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/models/cone/Cone */ "./src/assets/models/cone/Cone.js");
 /* harmony import */ var _react_three_drei__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @react-three/drei */ "./node_modules/@react-three/drei/core/OrbitControls.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -4171,7 +4300,7 @@ var MyCanvas = function MyCanvas() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     style: {
       width: "100vw",
-      height: "100vh"
+      height: "50vh"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_fiber__WEBPACK_IMPORTED_MODULE_3__.Canvas, {
     size: {
@@ -4186,12 +4315,60 @@ var MyCanvas = function MyCanvas() {
     position: [3, 0, 0]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
     fallback: null
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_assets_models_Cone__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_assets_models_cone_Cone__WEBPACK_IMPORTED_MODULE_1__["default"], {
     position: [0, 1, 0]
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_drei__WEBPACK_IMPORTED_MODULE_4__.OrbitControls, null)));
 };
 
 
+
+/***/ }),
+
+/***/ "./src/components/MyGallery.js":
+/*!*************************************!*\
+  !*** ./src/components/MyGallery.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _react_three_fiber__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @react-three/fiber */ "./node_modules/@react-three/fiber/dist/react-three-fiber.esm.js");
+/* harmony import */ var _assets_models_gallery_showroom_Scene__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/models/gallery_showroom/Scene */ "./src/assets/models/gallery_showroom/Scene.js");
+/* harmony import */ var _react_three_drei__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @react-three/drei */ "./node_modules/@react-three/drei/core/Environment.js");
+/* harmony import */ var _react_three_drei__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @react-three/drei */ "./node_modules/@react-three/drei/core/OrbitControls.js");
+
+
+
+
+
+var MyGallery = function MyGallery() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      width: "100vw",
+      height: "90vh"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_fiber__WEBPACK_IMPORTED_MODULE_2__.Canvas, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ambientLight", {
+    intensity: 0.3,
+    color: '#fff'
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+    fallback: null
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_assets_models_gallery_showroom_Scene__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    position: [0, -120, 0]
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_drei__WEBPACK_IMPORTED_MODULE_3__.Environment, {
+    preset: 'sunset'
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_react_three_drei__WEBPACK_IMPORTED_MODULE_4__.OrbitControls, {
+    autoRotate: true,
+    enableZoom: true,
+    enablePan: true
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MyGallery);
 
 /***/ }),
 
@@ -4557,13 +4734,23 @@ module.exports = __webpack_require__.p + "assets/9e15d4f6ff807c1a51e58da29292e3c
 
 /***/ }),
 
-/***/ "./src/assets/models/cone.gltf":
-/*!*************************************!*\
-  !*** ./src/assets/models/cone.gltf ***!
-  \*************************************/
+/***/ "./src/assets/models/gallery_showroom/scene.gltf":
+/*!*******************************************************!*\
+  !*** ./src/assets/models/gallery_showroom/scene.gltf ***!
+  \*******************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "assets/50a8eb0b9998a29b6405f44a1ca4136f.gltf";
+module.exports = __webpack_require__.p + "assets/gallery_showroom/eea0e04cf5dd7a01dda379d1a2c39e5b.gltf";
+
+/***/ }),
+
+/***/ "./src/assets/models/cone/cone.gltf":
+/*!******************************************!*\
+  !*** ./src/assets/models/cone/cone.gltf ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "assets/cone/50a8eb0b9998a29b6405f44a1ca4136f.gltf";
 
 /***/ }),
 

@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import React, { useEffect, useRef, useState, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useCursor, MeshReflectorMaterial, Image, Text, Environment, OrbitControls } from '@react-three/drei'
+import { useCursor, MeshReflectorMaterial, Image, Text, Environment } from '@react-three/drei'
 import { useRoute, useLocation } from 'wouter'
 import getUuid from 'uuid-by-string'
 const GOLDENRATIO = 1.61803398875

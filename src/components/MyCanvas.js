@@ -1,6 +1,6 @@
 import React, { useRef, useState, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import Cone from '../assets/models/Cone';
+import Cone from '../assets/models/cone/Cone';
 import { OrbitControls } from '@react-three/drei'
 
 const Box = (props) => {
@@ -28,7 +28,7 @@ const Box = (props) => {
 
 const MyCanvas = () => {
     return (
-      <div style={{ width: "100vw", height: "100vh" }}>
+      <div style={{ width: "100vw", height: "50vh" }}>
         <Canvas size={{ width: 200, height: 400 }}>
           <ambientLight />
           <pointLight position={[-10, 10, 10]} />
@@ -43,4 +43,4 @@ const MyCanvas = () => {
     );
 };
 
-export { MyCanvas };
+export { MyCanvas, Box };

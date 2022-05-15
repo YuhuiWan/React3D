@@ -10,6 +10,7 @@ const Menu = () => {
                 <li><Link to="/myCanvas">myCanvas</Link></li>
                 <li><Link to="/pictures">pictures</Link></li>
                 <li><Link to="/gallery">gallery</Link></li>
+                <li><Link to="/myGallery">myGallery</Link></li>
             </ul>
         </div>
     );
