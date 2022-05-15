@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Scene from '../assets/models/gallery_showroom/Scene';
-import { Environment, OrbitControls } from '@react-three/drei'
+import { Environment, FirstPersonControls, OrbitControls } from '@react-three/drei'
 
 const MyGallery = () => {
     return (
@@ -12,7 +12,8 @@ const MyGallery = () => {
                 <Scene position={[0, -120, 0]} />
             </Suspense>
             <Environment preset={'sunset'} />
-            <OrbitControls autoRotate={true} enableZoom={true} enablePan={true} />
+            <FirstPersonControls autoForward={true} lookSpeed={0.05} movementSpeed={10} />
+            {/* <OrbitControls autoRotate={true} enableZoom={true} enablePan={true} /> */}
           </Canvas>
         </div>
       );
