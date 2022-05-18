@@ -61,9 +61,9 @@ npm install
 ```
 2.webpack打包
 ```bash
-webpack
-或
-npm run build
+webpack --watch
+or
+npm run watch // 实时检测文件改动并编译
 ```
 3.启动
 ```bash
